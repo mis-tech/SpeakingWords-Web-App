@@ -1,0 +1,99 @@
+
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      #loading {
+            -webkit-animation: rotation 15s infinite linear;
+        }
+
+        @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(359deg);
+            }
+        }
+      #load{
+        width: 100%;
+        height: 100%;
+        position:fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 9999;
+        background: url({% static 'images/copper-loader.gif' %}) center no-repeat ;
+        
+      }
+      .scroll-box {
+            overflow-y: scroll;
+            height: 100px;
+            padding: 1rem
+        }
+      .bg-light {
+            background-color:  #f4d8dd!important;
+        }
+      .own{
+        border: 0.3px solid #041640;
+        background-color: white;
+        border-bottom: 2px solid #041640;
+        border-radius: 5px;
+      }
+
+.news_post_image .bx1
+{
+  position: relative;
+  overflow: hidden;
+}
+
+.bx1 .im1
+{
+  max-width: 100%;
+  transition: transform 2s;
+}
+.bx1 .im1:hover
+{
+  transform: scale(1.2);
+}
+
+.news_post_image .bx2
+{
+  position: relative;
+  overflow: hidden;
+}
+
+.bx2 .im1
+{
+  max-width: 100%;
+  transition: transform 2s;
+}
+.bx2 .im1:hover
+{
+  transform: scale(1.2);
+}
+.news_post_image .bx3
+{
+  position: relative;
+  overflow: hidden;
+}
+
+.bx3 .im1
+{
+  max-width: 100%;
+  transition: transform 2s;
+}
+.bx3 .im1:hover
+{
+  transform: scale(1.2);
+}

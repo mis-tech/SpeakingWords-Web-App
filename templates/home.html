@@ -1,0 +1,227 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Getting Text
+{% endblock %}
+
+
+
+{% block hlp%}
+{% endblock %}
+
+
+{% block gallery %}
+
+<br><br>
+<br><br><br>
+<div class="container" style="background-color:  rgb(245, 245, 245), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)); padding-bottom: 300px; background-repeat: no-repeat; background-size: cover; padding-right: 0px; padding-left: 0px;">
+	<div class="row" style="padding-right: 30px; padding-left: 30px; justify-content: center;">
+		<div class="col-md-6 col-sm-12" style="padding-right: 0px; padding-left: 0px; width: 100%">
+
+		    <form action="{% url 'ManualTxt' %}" method="POST">
+		    	{% csrf_token %}
+		    	 {% if msg %}
+		    	 	<div class="alert alert-danger alert-dismissible">
+					  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					  <strong>Error!</strong> {{ msg }}
+					</div>
+			      {% endif %}
+			      <h1 class="txtaraTiltle"></h1>
+			      <div class="boxText" style="width: 100%; background:rgba(177, 179, 208, 0.9);">
+			        <textarea class="textt" name="fulltextarea" id="field"  maxlength="5000" rows="10" cols="40" style="overflow:scroll; color: black;" required>{{ text }}{{ final_text }}</textarea>
+			      </div>
+			      <div class="timer" style="width: 100%">
+			        <h4><div class="message one justify-content-start">
+			        	
+			        </div></h4>
+			      </div>
+
+			        
+			        <input id="txtFirstName" placeholder="Enter Name" name="File_name" style="width: 70%; height: 35px" >
+			        <button type="submit" name="submit" value="Save" style="width: 28%; font-size: 15px; letter-spacing: 0px; justify-content: center; border-radius: 1px" class="NeonBtn">
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			                        Save
+			        </button>
+			        <br><br>
+			         <button type="submit" name="submit" value="Summarize_Text" style="width: 35%;float: center; font-size: 15px; letter-spacing: 0px; justify-content: center; border-radius: 1px; margin-left: 20%" class="NeonBtn">
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			                        Summarize Text
+			        </button>
+			        <button type="submit" name="submit" value="Convert_to_voice" style="width: 35%;float: center; font-size: 15px; letter-spacing: 0px; justify-content: center; border-radius: 1px; " class="NeonBtn">
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			            <span class="NeonBtun"></span>
+			                        Listen
+			        </button>
+			  
+		    </form>
+
+		    <br><br>
+	         <a style="width: 30%; font-size: 15px; letter-spacing: 0px; justify-content: center; border-radius: 1px; margin-left: 20%;border-width: 2px;border-style: outset;border-color:-internal-light-dark-color(rgb(118, 118, 118), rgb(195, 195, 195));border-image: initial " class="NeonBtn btun" href="{% url 'index' %}">
+                <span class="NeonBtun"></span>
+                <span class="NeonBtun"></span>
+                <span class="NeonBtun"></span>
+                <span class="NeonBtun"></span>
+                Back
+              </a>
+		    <button  style="width: 30%; font-size: 15px; letter-spacing: 0px; justify-content: center; border-radius: 1px; margin-left: 10%;position: absolute;" class="NeonBtn btun" id="c1">
+	            <span class="NeonBtun"></span>
+	            <span class="NeonBtun"></span>
+	            <span class="NeonBtun"></span>
+	            <span class="NeonBtun"></span>
+	                Clear
+	        </button><br><br>
+
+	       
+
+	   </div>
+	</div>
+
+
+
+
+	<div class="row" style="padding-right: 30px; padding-left: 30px; justify-content: center;">
+		<div class="col-md-6 col-sm-12" style="padding-right: 0px; padding-left: 0px; width: 100%">
+			<form action="{% url 'Text_Processing' %}" method="POST">
+
+		    	{% csrf_token %}
+			    <div class="boxTextBtn" style="width: 100%; justify-content: center;padding-left: 5%; border:none; height: 130px">
+			    	<input id="txtFirstName" value="{{ val }}" name="Word" style="width: 40%; height: 48px" required>
+			    	<textarea   rows="4" cols="50" style="width: 50%;height: 48px; position: absolute;">{{ rzlt }} {{ v1 }}  {{ v2 }}  {{ v3 }}  {{ v4 }}</textarea><br><br>
+			    	<button type="submit" name="submit" value="Synonym" style="width: 30%; font-size: 15px; letter-spacing: 0px; justify-content: center;" class="NeonBtn">
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                        Synonym
+	                </button>
+	               
+	                <button  name="submit" value="Translation" style="width: 35%; font-size: 15px; letter-spacing: 0px; justify-content: center;" class="NeonBtn">
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                        Translation
+	                </button>
+				</form>
+				<audio id = "player" src = "media/demoWord.mp3"></audio>
+	                <button  style="width: 30%; font-size: 15px; letter-spacing: 0px; justify-content: center;" class="NeonBtn" onclick = "document.getElementById('player').play()">
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                    <span class="NeonBtun"></span>
+	                    Pronounce
+	                </button>
+			    </div>
+
+			
+					
+	   </div>
+	</div>
+	
+
+
+	
+	<div class="row" style="padding-right: 30px; padding-left: 30px; justify-content: center; padding-top: 0px">
+		<div class="col-md-6 col-sm-12" style="padding-right: 0px; padding-left: 0px; width: 100%">
+		    <div class="boxTextBtn" style="width: 100%; justify-content: center;padding-left: 5%; border:none; height: 45px">
+				  <form action="{% url 'External_Text' %}" method="POST">
+				  	{% csrf_token %}
+					  <div class="form-row align-items-center" style="width: 100%">
+					    <div class="col-auto" style="width: 100%">
+					      <label class="sr-only" for="inlineFormInputGroup">Paste Here...</label>
+					      <div class="input-group mb-2">
+					        <div class="input-group-prepend">
+					          <div class="input-group-text">URL</div>
+					        </div>
+					        <textarea name="fulltextarea" class="form-control" aria-label="With textarea" required></textarea>
+					        <input class="btn btn-primary|secondary|success|danger|warning|info|light|dark" type="submit" name="submit" value="Scrap">
+					      </div>
+					    </div>
+					  </div>
+				</form>
+		    </div>
+	   </div>
+	</div>
+<br>
+
+
+	<div class="row" style="padding-right: 30px; padding-left: 30px; justify-content: center; padding-top: 0px">
+		<div class="col-md-6 col-sm-12" style="padding-right: 0px; padding-left: 0px; width: 100%">
+		    <div class="boxTextBtn" style="width: 100%; justify-content: center;padding-left: 5%; border:none; height: 45px">
+
+				<form method="post" enctype="multipart/form-data" action="{% url 'File_Upload' %}">
+	     				{% csrf_token %}
+					  <div class="form-row align-items-center" style="width: 100%">
+					    <div class="col-auto" style="width: 100%">
+					      <label class="sr-only" for="inlineFormInputGroup">Paste Here...</label>
+					      <div class="input-group mb-2">
+					        <div class="input-group-prepend">
+					          <div class="input-group-text">Choose File</div>
+					        </div>
+						        <input type="file" name="document" id="chooseFile" class="form-control" aria-label="With textarea" required>	
+						        <input class="btn btn-primary|secondary|success|danger|warning|info|light|dark" type="submit" name="submit" value="Read_Data">
+					      </div>
+					    </div>
+					  </div>
+					</form>
+			    </div>
+		   </div>
+		</div>
+	 </div>
+
+
+
+
+ {% block script %}
+    	<script type="text/javascript"> 
+			$(function() {
+			    $('#txtFirstName').keydown(function(e) {
+			      if (e.shiftKey || e.ctrlKey || e.altKey) {
+			        e.preventDefault();
+			      } else {
+			        var key = e.keyCode;
+			        if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+			          e.preventDefault();
+			        }
+			      }
+			    });
+			  });
+		</script>
+
+
+{% endblock %}
+
+
+{% endblock %}
+
+
+
+
+
+{% block featured_Album %}
+{% endblock %}
+
+
+{% block Others %}
+{% endblock %}
+
+{% block news %}
+{% endblock %}
+
+
+{% block welcome %}
+{% endblock %}
+
+{% block demo %}
+{% endblock %}
+
+	

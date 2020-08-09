@@ -1,0 +1,450 @@
+    {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{% block title %}Speaking Words{% endblock %}</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Music template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+
+<!-- for main home area -->
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link rel="icon" href="{% static 'images/favicon.ico' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/styleGallery.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/piegraph.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/colmnGraph.css' %}">
+<!--<link rel="stylesheet" type="text/css" href="{% static 'css/var_peigrapgh.css' %}">
+-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/BtnNeonStyle.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Sofia&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/txteraStyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/aboutStyle.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/MyStyles.css' %}">
+<link rel="stylesheet" href="{% static 'css/reg-style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/demoPlay.css' %}">
+<link href="{% static 'font-awesome-4.7.0/css/font-awesome.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/album.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/emailBox.css' %}">
+
+
+<style>
+    .loader {
+      border: 2px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 2px solid #3498db;
+      width: 80px;
+      height: 80px;
+      -webkit-animation: spin 2s linear infinite; /* Safari */
+      animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+
+    .navbar-dark .navbar-nav .nav-link {
+        color: rgb(0, 0, 0) !important;
+        font-size: 20px;
+        font-style: oblique;
+        font-weight: bold;
+        margin-left: 30px;
+    }
+
+</style>
+
+{% block style %}
+{% endblock %}
+
+
+</head>
+<body style="background-color: rgb(245, 245, 245)">
+
+
+{% block acounts %}
+{% endblock %}
+
+
+
+<div class="super_container" > 
+
+
+
+    <!-- Header -->
+
+{% block header %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top" style="background-color: #bdbaba !important; ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="{% url 'home' %}"><img class="loader" src="{% static 'images/Log.png' %}" ></a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'help' %}">Help</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'search' %}">Search</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+          </li>
+      {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Log_Out</a>
+          </li>
+      {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login_url' %}">Sign_In</a>
+          </li>
+          {% endif %}
+    </ul>
+  </div>
+</nav>
+
+
+    <!-- Header Area End -->
+
+{% endblock %}
+
+
+
+{% block dashboard %}
+{% endblock %}
+
+
+{% block about %}
+{% endblock %}
+
+
+
+
+ <!-- Welcome Area Start -->
+{% block welcome %}
+   
+    <section class="welcome-area " style="border-radius: 30px; padding-top:4px; ">
+        <div class="welcome-slides owl-carousel">
+
+            <!-- Single Welcome Slide -->
+            <div class="single-welcome-slide bg-img bg-overlay"  style="background-image: url({% static 'images/picture.JPEG' %});">
+                <!-- Welcome Content -->
+                <div class="welcome-content h-100">
+                    <div class="container h-100">
+                        <div class="row h-100 align-items-center justify-content-center">
+                            <!-- Welcome Text -->
+                            <div class="col-12 col-md-9 col-lg-6">
+                                <div class="welcome-text text-center">
+                                    <h2 data-animation="fadeInUpBig" data-delay="100ms">Now You Can 
+                                    Enjoy Audio With More features.</h2>
+                                      <a class="NeonBtn" href="{% url 'index' %}" data-animation="fadeInUpBig" data-delay="700ms">
+                                        <span class="NeonBtun"></span>
+                                        <span class="NeonBtun"></span>
+                                        <span class="NeonBtun"></span>
+                                        <span class="NeonBtun"></span>
+                                        Lets' Start
+                                      </a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- Welcome Area End -->
+{% endblock %}
+
+
+
+
+    <!-- Demo -->
+{% block demo %}
+<br><br>
+<h2 style="padding-left: 40%">Listen Demo Audio Stream</h2>
+<div class="container justify-content-center align-items-center" id="dmo" style="padding-top:40px">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 demmo">
+            <div class="glow">
+                <div class="text-container">
+                  <span class="text demtxt">Audio Play</span>
+                  <br>
+                  <span class="text demtxt">Welcome to SpeakingWords' World</span>
+                  <br>
+                  <div class="playback_controls">
+                    <a id="play-pause-button" style="font-size: 50px;cursor: pointer;" class="fa fa-play"></a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br>
+{% endblock %}
+
+
+
+{% block gallery %}
+{% endblock %}
+
+
+
+{% block featured_Album %}   
+{% endblock %}
+
+
+
+    <!-- Help Section -->
+
+    <!-- Newsletter -->
+
+
+
+
+
+
+{% block Others %}
+    <br>
+
+    {% if message_name %}
+
+    <br><br><br><br><br>
+    <br><br><br><br><br> 
+    <h2 style="padding-left: 40%; color: black">Contact Us</h2><br><br><br> 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-sm-12 col-lg-4">
+                <h2 style="">Thanks {{ message_name }}</h2>
+                <p>We received your email and will respond shortly...</p>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
+     <br><br><br><br><br>  
+
+    {% else %}
+    <br><br><br>
+<h2 style="padding-left: 43%; color: black">Contact Us</h2><br><br><br>
+<div class="container">
+  <div class="row" >
+    <div class="col-md-6 col-sm-12" style="height: 600px">
+      <img src="{% static 'images/2hlp3.JPG' %}" style="float: left;"> 
+    </div>
+    <div class="col-md-6 col-sm-12 " id="wrap" style="height: 600px">
+      <div id="form-wrap">
+        <form class="frmstyle" action="{% url 'Send_Email' %}" method="POST" style="margin-left:10%; width: 450px">
+            {% csrf_token %}
+            <p class="Pstyle">FEEDBACK TIME</p>
+            
+            <label for="name" class="LbStyle">Name:</label>
+            <input type="text" name="message_name" value="" id="name" style="border:1px solid gray" class="inStyle" required>
+
+            {% if user.is_authenticated %}
+                <label for="name" class="LbStyle">Email:</label>
+                <input type="email"   id="email" class="inStyle" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b"  style="border:1px solid gray"   placeholder="You are an Authenticated User" disabled>
+
+            {% else %}
+
+                <label for="name" class="LbStyle">Email:</label>
+                <input type="email" name="message_email" id="email"  class="inStyle" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b"  style="border:1px solid gray" placeholder="example@gmail.com" required>
+
+            {% endif %}
+
+            <label for="email" class="LbStyle">Your Message:</label>
+            <textarea name="message" id="message" value="Your Message" style="border:1px solid gray" class="txtareaStyle" required></textarea>
+
+            
+            {% if user.is_authenticated %}
+                <button type="submit" name="submit" value="AuthSending" style="width: 30%;height: 35px; font-size: 15px; letter-spacing: 0px; justify-content: center; border-radius: 1px; float: right;" class="NeonBtn">
+                        <span class="NeonBtun"></span>
+                        <span class="NeonBtun"></span>
+                        <span class="NeonBtun"></span>
+                        <span class="NeonBtun"></span>
+                            Send
+                  </button>
+            {% else %}
+                <button type="submit" name="submit" value="NewSending" style="width: 30%;height: 35px; font-size: 15px; letter-spacing: 0px; justify-content: center; border-radius: 1px; float: right;" class="NeonBtn">
+                        <span class="NeonBtun"></span>
+                        <span class="NeonBtun"></span>
+                        <span class="NeonBtun"></span>
+                        <span class="NeonBtun"></span>
+                            Send
+                  </button>
+            {% endif %}
+        </form>
+    </div> 
+    </div>
+  </div>
+</div>
+    {% endif %}
+
+{% endblock %}
+
+
+
+<br><br>
+<br><br><br>
+
+    <!-- Footer -->
+{% block footer %}
+
+     <footer class="footer">
+        <div class="background_image" style="background-image:url({% static 'images/footer-bg.jpg' %})"></div>
+        <div class="footer_content">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="#" class="d-flex flex-row align-items-end justify-content-start">
+                                <span class="logo_bars d-flex flex-row align-items-end justify-content-between"><span></span><span></span><span></span><span></span><span></span></span>
+                                <span class="logo_text">SPEAKING WORDS</span>
+                            </a>
+                        </div>
+
+                        <!-- Footer Social -->
+                        <div class="footer_social">
+                            <ul class="d-flex flex-row align-items-center justify-content-center">
+                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="copyright text-center">
+                          <h3 style="color: white;">Developed By Iram Shahzadi & Aqsa , from COMSATS University Islamabad Sahiwal campus</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </footer>
+{% endblock %}
+</div>
+
+
+
+
+
+
+<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+
+<!--for main home area -->
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.easypiechart.js' %}"></script>
+<script src="{% static 'js/jquery.easypiechart.min.js' %}"></script>
+
+<script src="{% static 'js/3dslider.js' %}"></script>
+
+<!-- Dashboard-->
+<script src="{% static 'js/highcharts.js' %}"></script>
+<script src="{% static 'js/pieChart.js' %}"></script>
+<script src="{% static 'js/colChart.js' %}"></script>
+<script src="{% static 'js/variable-pie.js' %}"></script>
+<script src="{% static 'js/var_pieChart.js' %}"></script>
+<script src="{% static 'js/donutGraph.js' %}"></script>
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/txteraa.js' %}"></script>
+
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
+
+{% block script %}
+<script type="text/javascript">
+    var audio = new 
+    Audio('media/story.mp3');
+
+    $('#play-pause-button').on("click",function(){
+      if($(this).hasClass('fa-play'))
+       {
+         $(this).removeClass('fa-play');
+         $(this).addClass('fa-pause');
+         audio.play();
+       }
+      else
+       {
+         $(this).removeClass('fa-pause');
+         $(this).addClass('fa-play');
+         audio.pause();
+       }
+    });
+
+    audio.onended = function() {
+         $("#play-pause-button").removeClass('fa-pause');
+         $("#play-pause-button").addClass('fa-play');
+    };
+</script> 
+{% endblock %}
+
+
+
+
+
+<script>
+
+        $(function() {
+          $('#c1').click(function() {
+            $("#field").val("")
+          });
+        });    
+</script>
+<script>
+    $('#chooseFile').bind('change', function () {
+      var filename = $("#chooseFile").val();
+      if (/^\s*$/.test(filename)) {
+        $(".file-upload").removeClass('active');
+        $("#noFile").text("No file chosen..."); 
+      }
+      else {
+        $(".file-upload").addClass('active');
+        $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+      }
+    });
+</script>
+
+
+
+</body>
+</html>

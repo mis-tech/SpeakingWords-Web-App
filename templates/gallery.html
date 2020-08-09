@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block hlp%}
+{% endblock %}
+
+
+
+
+{% block gallery %}
+
+
+<br><br><br><br><br>
+<h2 class=" justify-content-center align-items-center " style="padding-left: 40%">Audio Gallery</h2>
+
+ 
+<div class="container cntn">
+ {% for audio in AudioFiles %} 
+    <div class="card crd">
+      <div class="imgBox">
+        <img  class="imag" src="{% static 'images/bgpic2 (2).JPG' %}">
+      </div>
+      <div class="details">
+        <h2>{{ audio }}</h2>
+        <p>Enjoy The Audio Stream
+          <audio controls>
+              <source src="media/audio/{{ audio }}" type="audio/mp3">
+              Your browser does not support the audio tag.
+            </audio>
+            <br>
+            <a class="NeonBtn" href="{% url 'index' %}" data-animation="fadeInUpBig" data-delay="700ms">
+               <span class="NeonBtun"></span>
+               <span class="NeonBtun"></span>
+                <span class="NeonBtun"></span>
+                <span class="NeonBtun"></span>
+                Add New
+           </a>
+        </p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+
+
+    
+
+
+{% endblock %}
+
+{% block Others %}
+{% endblock %}
+
+
+{% block welcome %}
+{% endblock %}
+
+{% block demo %}
+{% endblock %}
+
+{% block news %}
+{% endblock %}

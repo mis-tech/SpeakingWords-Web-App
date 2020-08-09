@@ -1,0 +1,198 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+
+{% block title %}
+Enjoy Audio
+{% endblock %}
+
+{% block hlp%}
+{% endblock %}
+
+
+
+{% block style %}
+<style>
+   
+    .custom-range::-moz-range-track {
+    width: 100% ; 
+    height: .9rem;
+    color: transparent;
+    cursor: pointer;
+    background-color: #141617;
+    border-color: #952a2a00;
+    border-radius: 2rem;
+}
+  </style>
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+{% endblock %}
+
+
+
+
+{% block gallery %}
+
+<br>
+<br><br>
+<br>
+
+
+
+
+<div class="container" style="background-color: rgb(245, 245, 245), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)); padding-bottom: 300px; background-repeat: no-repeat; background-size: cover; padding-right: 0px; padding-left: 0px;">
+<h1 style="margin-bottom: 0px">Enjoy Audio Stream</h1>
+  <div class="container text-center" style="margin-bottom: 0px">
+    <div class="row" style="padding-top: 0px">
+      <div class="col-md-6 mx-auto">
+        <form class="mb-5">
+          <div class="form-group">
+            <textarea name="" id="text-input" class="form-control form-control-lg" placeholder="Type anything..."  maxlength="5000" rows="10" cols="40" style="overflow:scroll; color: black; height: 250px">{{ text }}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="rate" style="">Rate</label>
+            <div id="rate-value" class="badge badge-primary float-right">1</div>
+            <input type="range" id="rate" class="custom-range" min="0.5" max="2" value="1" step="0.1" style="height: .9rem; background-color: #141617;">
+          </div>
+          <div class="form-group">
+            <label for="pitch">Pitch</label>
+            <div id="pitch-value" class="badge badge-primary float-right">1</div>
+            <input type="range" id="pitch" class="custom-range" min="0" max="2" value="1" step="0.1" style="height: .9rem; background-color: #141617;">
+          </div>
+          <div class="form-group">
+            <select id="voice-select" class="form-control form-control-lg"></select>
+          </div>
+
+         <div class="btn-group" role="group" aria-label="Basic example">
+
+            <button type="button" class="btn-lg btn-secondary" onclick="tr.queue()">Speak It</button>
+            <button type="button" class="btn-lg btn-secondary" onclick="tr.pause()">Pause</button>
+            <button type="button" class="btn-lg btn-secondary"onclick="tr.play()">Play</button>
+            <button type="button" class="btn-lg btn-secondary" onclick="tr.cancel()">Cancel</button>
+
+          </div>
+        </form>
+          <a style="width: 50%; font-size: 15px; letter-spacing: 0px; justify-content: center; border-radius: 1px; " class="NeonBtn btun btn-lg btn-secondary" href="{% url 'index' %}">
+            <span class="NeonBtun"></span>
+            <span class="NeonBtun"></span>
+            <span class="NeonBtun"></span>
+            <span class="NeonBtun"></span>
+            Back
+          </a>
+      
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="row" >
+
+       <div class="col-lg-3 col-sm-1"></div>
+        <div class="col-lg-1 col-sm-2">
+          <input type="radio" name="star" id="star1" checked="checked ">
+          <label for="star1">
+            <img src="{% static 'images/amazing.png' %}" style="border-radius: 50px;">
+            <h4>Loved It</h4>
+          </label>
+        </div>
+
+
+        <div class="col-lg-1 col-sm-2">
+          <input type="radio" name="star" id="star2"  checked="checked">
+          <label for="star2">
+            <img src="{% static 'images/like.png' %}" style="border-radius: 50px;">
+            <h4>Liked It</h4>
+          </label>
+        </div>
+
+
+        <div class="col-lg-1 col-sm-2">
+          <input type="radio" name="star" id="star3" checked="checked">
+          <label for="star3">
+            <img src="{% static 'images/dislike.png' %}" style="border-radius: 50px;">
+            <h4>Just OK</h4>
+          </label>
+        </div>
+
+
+        <div class="col-lg-1 col-sm-2">
+          <input type="radio" name="star" id="star4" checked="checked">
+          <label for="star4">
+            <img src="{% static 'images/hated.png' %}" style="border-radius: 50px;">
+            <h4>Dislike It</h4>
+          </label>
+        </div>
+
+
+        <div class="col-lg-1 col-sm-2">
+          <input type="radio" name="star" id="star5" checked="checked">
+          <label for="star5">
+            <img src="{% static 'images/noComents.png' %}" style="border-radius: 50px;">
+            <h4>Hated It</h4>
+          </label>
+        </div>
+
+      </div>
+</div>
+
+
+
+{% block script %}
+
+
+<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/demoPly.js' %}"></script>
+
+<script>
+   var url = '{{ url|escapejs }}';
+</script>
+
+
+  <script type="text/javascript"> 
+      $(function() {
+          $('#txtFirstName').keydown(function(e) {
+            if (e.shiftKey || e.ctrlKey || e.altKey) {
+              e.preventDefault();
+            } else {
+              var key = e.keyCode;
+              if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
+                e.preventDefault();
+              }
+            }
+          });
+        });
+    </script>
+
+
+{% endblock %}
+
+
+{% endblock %}
+
+
+        
+
+{% block featured_Album %}
+{% endblock %}
+
+
+{% block Others %}
+{% endblock %}
+
+{% block news %}
+{% endblock %}
+
+
+{% block welcome %}
+{% endblock %}
+
+{% block demo %}
+{% endblock %}
+
+
+
+
+

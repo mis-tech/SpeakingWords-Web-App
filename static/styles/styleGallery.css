@@ -1,0 +1,163 @@
+
+
+#bdy {
+	overflow: hidden;
+	display: flex;
+	background: #111;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+
+#slider-main,
+#slider-item {
+	position: relative;
+	display: flex;
+	margin: auto;
+	transform-style: preserve-3d;
+	transform: rotateX(-10deg);
+}
+
+#slider-main img {
+	transform-style: preserve-3d;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	line-height: 200px;
+	font-size: 50px;
+	text-align: center;
+	box-shadow: 0 0 8px 5px #111;
+	border-radius: 12px;
+	transition: all .2s linear;
+	box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+	-webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+	-moz-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+	-o-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+}
+
+#slider-main img:hover {
+	box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+	-webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+	-moz-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+	-0-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+}
+
+#slider-main p {
+	font-family: Serif;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotateX(90deg);
+	color: #fff;
+	font-size: 34px;
+}
+
+#ground {
+	width: 900px;
+	height: 900px;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotateX(90deg);
+	background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+}
+
+#music-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+
+
+@keyframes spin {
+	from {
+		transform: rotateY(0deg);
+	}
+
+	to {
+		transform: rotateY(360deg);
+	}
+}
+
+@keyframes spinRevert {
+	from {
+		transform: rotateY(360deg);
+	}
+
+	to {
+		transform: rotateY(0deg);
+	}
+}
+
+
+.cntn{
+    max-width: 1000px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.crd{
+    position: relative;
+    margin: 20px 0;
+    width: 300px;
+    height: 350px;
+    background:#fff;
+    transform-style: preserve-3d;
+    transform: perspective(2000px);
+    transition: 1s;
+    box-shadow: inset 300px 0 50px rgba(0,0,0,.5);
+}
+
+.crd:hover{
+    z-index: 1000;
+    transform: perspective(2000px) rotate(-10deg);
+    box-shadow: inset 20px 0 50px rgba(0,0,0,.5);
+}
+
+.crd .imgBox{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    transform-origin: left;
+    z-index: 1;
+    transition: 1s;
+}
+
+
+.crd .imgBox .imag{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    transform-origin: left;
+    z-index: 1;
+    transition: 1s;
+}
+
+.crd:hover .imgBox{
+    transform: rotateY(-135deg);
+}
+
+.card .imgBox .imag{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+}
+
+.crd .details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 20px;
+}

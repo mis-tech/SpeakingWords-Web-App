@@ -1,0 +1,44 @@
+{% extends 'index.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+{% block acounts %}
+<br><br><br><br>
+<div class=" container signup-form just" >
+	<h2>Registration</h2>
+    <form  method="post">
+    	{% csrf_token %}
+        {{ form|crispy }}
+		<button  class=" btn btn-primary btn-sm" type="submit"  style="color: white">Register Now</button>
+		<span style="font-size: 20px">OR</span>
+		<a href="{% url 'login_url' %}"  class="btn btn-primary btn-sm" style="color: white">Login</a>
+	</form>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block welcome %}
+{% endblock %}
+
+
+{% block Others %}
+{% endblock %}
+
+{% block demo %}
+{% endblock %}
+
+
+{% block news %}
+{% endblock %}
+
+
+{% block recomendation %}
+{% endblock %}

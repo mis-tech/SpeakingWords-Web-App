@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block hlp%}
+{% endblock %}
+
+{% block dashboard %}
+<br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+	
+	<h2 class=" justify-content-center align-items-center " style="padding-left: 43%;">Help section</h2>
+<img src="{% static 'images/1hlp4.JPG' %}" style="float: right; width: 700px">
+
+    
+		<div class="container cntn" style="width: 800px"> 
+		    <div class="card crd">
+		    	<h2>Type Text</h2>
+		      <div class="imgBox">
+		        <img  class="imag" src="{% static 'images/101.JPG' %}">
+		      </div>
+		      <div class="details"><br><br>
+		        
+		        <p style="color: black; font-size: 20px">You must have to enter at least 50 characters for converting to speech.<br> The text must be in English.<br><br>
+		          <a class="NeonBtn" href="{% url 'index' %}" data-animation="fadeInUpBig" data-delay="700ms">
+		               <span class="NeonBtun"></span>
+		               <span class="NeonBtun"></span>
+		                <span class="NeonBtun"></span>
+		                <span class="NeonBtun"></span>
+		                Lets' Start
+		           </a>
+		        </p>
+		      </div>
+		    </div>
+		    <div class="card crd">
+		    	<h2>Web Scraping</h2>
+		      <div class="imgBox">
+		        <img  class="imag" src="{% static 'images/102.JPG' %}">
+		      </div>
+		      <div class="details"><br><br>
+		        
+		        <p style="color: black; font-size: 20px">You can get text from ant web page to convert it in audio file.<br> The text is fetched from the web page and then cleaned using different libraries like regex, Tokenizer and stopwords etc.<br> <br>
+		         
+		        </p>
+		      </div>
+		    </div>
+		    <div class="card crd">
+		    	<h2>File Browsing</h2>
+		      <div class="imgBox">
+		        <img  class="imag" src="{% static 'images/103.PNG' %}">
+		      </div>
+		      <div class="details"><br><br>
+		        
+		        <p style="color: black; font-size: 25px">You can also browse a txt file to convert it into audio file.<br>Browse Only txt files.<br>
+		          <a class="NeonBtn" href="{% url 'index' %}" data-animation="fadeInUpBig" data-delay="700ms">
+		               <span class="NeonBtun"></span>
+		               <span class="NeonBtun"></span>
+		                <span class="NeonBtun"></span>
+		                <span class="NeonBtun"></span>
+		                Lets' Start
+		           </a>
+		        </p>
+		      </div>
+		    </div>
+		</div>
+		
+	<br><br><br>
+<br><br><br>
+
+
+
+{% endblock %}
+
+
+{% block welcome %}
+{% endblock %}
+
+
+{% block featured_Album %}
+{% endblock %}
+
+
+{% block demo %}
+{% endblock %}
+
+
+{% block news %}
+{% endblock %}
+
+
+{% block recomendation %}
+{% endblock %}
+{% block footer %}
+{% endblock %}

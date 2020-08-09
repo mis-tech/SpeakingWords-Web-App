@@ -1,0 +1,74 @@
+{% load static %}
+<!doctype html>
+
+<head>
+    <style>
+        /* CSS comes here */
+        body {
+            font-family: arial;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: solid 2px #BBB;
+        }
+
+        div {
+            margin: 10px 0px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #6a67ce;
+            color: #FFFFFF;
+            border: 0px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+    <title>Play Pause Button Testing</title>
+</head>
+
+<body>
+    <form class="md-5">
+        <div class="form-group">
+            <textarea name="" id="text-input" class="=" form-control form-control form-control-lg
+                placeholder="Type anything . . . " maxlength=" 5000" rows="10" cols="40"
+                sytle="overflow: scroll; color: black; height: 250px">{{ text }}
+        </textarea>
+        </div>
+        <div class="form-group">
+            <label style="background-color: white; color: black; font-size: 30px;" for="rate">
+                Rate</label>
+            <div id="rate-value" class="badge badge-primary float-right">1</div>
+            <input type="range" id="rate" class="custom-range" min="0.5" max="2" value="1" step="0.1"
+                style="height: 0.9rem; background-color: #0e212b;" />
+        </div>
+        <div class="form-group">
+            <label style="background-color: white; color: black; font-size: 30px;" for="rate">
+                Pitch</label>
+            <div id="pitch-value" class="badge badge-primary float-right">1</div>
+            <input type="range" id="pitch" class="custom-range" min="0.5" max="2" value="1" step="0.1"
+                style="height: 0.9rem; background-color: #0e212b;" />
+        </div>
+        <div class="form-group">
+            <select id="voice-select" class="form-control form-control-lg">
+            </select>
+        </div>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" onclick="tr.queue()">Speak It</button>
+  <button type="button" class="btn btn-secondary" onclick="tr.pause()">Pause</button>
+  <button type="button" class="btn btn-secondary"onclick="tr.play()">Play</button>
+    <button type="button" class="btn btn-secondary" onclick="tr.cancel()">Cancel</button>
+
+</div>
+        
+    
+  </form>
+
+  <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>
